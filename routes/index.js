@@ -1,0 +1,12 @@
+const express = require('express');
+const Routes = express.Router();
+console.log("Routes Connected");
+const {verifyToken} = require('../config/passportStrargy');
+const {checkRole} = require('../config/passportStrargy');
+const adminController = require('../controller/adminController');
+Routes.post('/insetApi',adminController.insetApi);
+Routes.get('/viewApi',verifyToken,checkRole('admin'),adminController.viewApi);
+Routes.delete('/deleteApi',adminController.deleteApi);
+Routes.put('/updateApi',adminController.updateApi);
+Routes.post('/loginApi',adminController.loginApi);
+module.exports = Routes;
