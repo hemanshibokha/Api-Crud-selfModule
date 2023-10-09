@@ -1,4 +1,4 @@
-const registerSchema = require('../models/schema');
+const registerSchema = require('../models/adminschema');
 const jwt = require('jsonwebtoken');
 const insetApi = async (req,res) => {
     try{
