@@ -53,8 +53,29 @@ const subCategoryDeleteApi = async (req,res) => {
     }
 }
 
+const subCategoryUpdateApi = async (req,res) => {
+    try{
+        const{subcategory} = req.body;
+        let UpdateId = req.body.id;
+        let subcategoryUpdate = await subcategorySchema.findByIdAndUpdate(UpdateId,{
+            subcategory : subcategory
+        })
+        if(subcategoryUpdate){
+            return res.json({message : 'Subcategory Update' , status : 1});
+        }
+        else{
+            return res.json({message : 'Subcategory Not Update' , status : 0});
+        }
+    }
+    catch(error){
+        console.log(error);
+        return false;
+    }
+}
+
 module.exports = {
     subCategoryInsertApi,
     subCategoryViewApi,
-    subCategoryDeleteApi
+    subCategoryDeleteApi,
+    subCategoryUpdateApi
 }
