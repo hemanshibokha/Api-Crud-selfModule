@@ -56,7 +56,7 @@ const categoryUpdateApi = async (req,res) => {
     try{
         let updateId = req.body.id;
         let UpdateRecord = await categorySchema.findByIdAndUpdate(updateId,{
-            category : category
+            category : req.body.category
         });
         if(UpdateRecord){
             return res.json({message : 'Category Update' , status : 1});

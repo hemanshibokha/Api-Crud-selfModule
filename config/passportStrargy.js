@@ -3,7 +3,6 @@ const jwt = require('jsonwebtoken');
 const verifyToken = (req, res, next) => {
   const token = req.headers.authorization;
   const finletoken = token.slice(7);
-  console.log(finletoken);
   jwt.verify(finletoken, 'Hemanshi', (err, decoded) => {
     if (err) {
       return res.status(403).json({ message: 'Token is not valid' });

@@ -21,5 +21,7 @@ Routes.delete('/categorydeleteApi',categoryController.categorydeleteApi);
 Routes.put('/categoryUpdateApi',categoryController.categoryUpdateApi);
 
 Routes.post('/subCategoryInsertApi',subCategoryController.subCategoryInsertApi);
+Routes.get('/subCategoryViewApi',subCategoryController.subCategoryViewApi);
+Routes.delete('/subCategoryDeleteApi',subCategoryController.subCategoryDeleteApi);
 
 module.exports = Routes;

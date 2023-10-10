@@ -3,18 +3,24 @@ const jwt = require('jsonwebtoken');
 const insetApi = async (req,res) => {
     try{
         const {name,email,password,city,role} = req.body;
-        let Insertdata = await registerSchema.create({
-            name : name,
-            email : email,
-            password : password,
-            city  : city,
-            role : role
-        })
-        if(Insertdata){
-            return res.json({message : "User Registered" , status : 1});
+        let User = await registerSchema.findOne({email : email});
+        if(User){
+            return res.json({message : "User Already Registered" , status : 0});   
         }
         else{
-            return res.json({message : "User Not Registered" , status : 0});
+            let Insertdata = await registerSchema.create({
+                name : name,
+                email : email,
+                password : password,
+                city  : city,
+                role : role
+            })
+            if(Insertdata){
+                return res.json({message : "User Registered" , status : 1});
+            }
+            else{
+                return res.json({message : "User Not Registered" , status : 0});
+            }
         }
     }
     catch(error){
