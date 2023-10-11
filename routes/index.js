@@ -40,5 +40,8 @@ Routes.delete('/subCategoryDeleteApi',subCategoryController.subCategoryDeleteApi
 Routes.put('/subCategoryUpdateApi',subCategoryController.subCategoryUpdateApi);
 
 Routes.post('/productInsertApi',imageUpload,productController.productInsertApi);
+Routes.get('/productViewApi',productController.productViewApi);
+Routes.delete('/productDeleteApi',productController.productDeleteApi);
+Routes.put('/productupdateApi',productController.productupdateApi);
 
 module.exports = Routes;
