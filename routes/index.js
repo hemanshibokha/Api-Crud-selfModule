@@ -22,6 +22,7 @@ const adminController = require('../controller/adminController');
 const categoryController = require('../controller/categoryController');
 const subCategoryController = require('../controller/subcategoryController');
 const productController = require('../controller/productController');
+const addToCartController = require('../controller/addToCartController');
 
 Routes.post('/insetApi',adminController.insetApi);
 Routes.get('/viewApi',verifyToken,checkRole('admin'),adminController.viewApi);
@@ -43,5 +44,7 @@ Routes.post('/productInsertApi',imageUpload,productController.productInsertApi);
 Routes.get('/productViewApi',productController.productViewApi);
 Routes.delete('/productDeleteApi',productController.productDeleteApi);
 Routes.put('/productupdateApi',productController.productupdateApi);
+
+Routes.post('/addToCartInsert',addToCartController.addToCartInsert);
 
 module.exports = Routes;
