@@ -46,5 +46,8 @@ Routes.delete('/productDeleteApi',productController.productDeleteApi);
 Routes.put('/productupdateApi',productController.productupdateApi);
 
 Routes.post('/addToCartInsert',addToCartController.addToCartInsert);
+Routes.get('/cartViewApi',addToCartController.cartViewApi);
+Routes.delete('/cartDeleteApi',addToCartController.cartDeleteApi);
+Routes.put('/cartupdateApi',imageUpload,addToCartController.cartupdateApi);
 
 module.exports = Routes;

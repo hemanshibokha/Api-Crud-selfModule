@@ -2,6 +2,7 @@ const jwt = require('jsonwebtoken');
 
 const verifyToken = (req, res, next) => {
   const token = req.headers.authorization;
+  
   const finletoken = token.slice(7);
   jwt.verify(finletoken, 'Hemanshi', (err, decoded) => {
     if (err) {
